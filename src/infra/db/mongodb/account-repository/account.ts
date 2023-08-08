@@ -10,12 +10,8 @@ export class AccountMongoRepository implements AddAccountRepository {
 
     // property "ops" no longer exists, so it is necessary to search for the created account
     const { insertedId: id } = result
-    const accountById = await accountCollection.findOne({ _id: id })
-    const { _id, ...accountWithoutId } = accountById
-    const account = Object.assign({}, accountWithoutId, {
-      id: _id.toHexString(),
-    }) as AccountModel
+    const account = await accountCollection.findOne({ _id: id })
 
-    return account
+    return MongoHelper.map(account)
   }
 }
