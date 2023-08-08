@@ -16,8 +16,10 @@
   "license": "ISC",
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
+    "@shelf/jest-mongodb": "^4.1.7",
     "@types/bcrypt": "^5.0.0",
     "@types/jest": "^29.5.3",
+    "@types/mongodb": "^4.0.7",
     "@types/node": "^20.4.8",
     "@types/validator": "^13.9.0",
     "eslint": "^8.46.0",
@@ -31,6 +33,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "mongodb": "^5.7.0",
     "validator": "^13.11.0"
   }
 }
