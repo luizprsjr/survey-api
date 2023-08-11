@@ -2,8 +2,10 @@ import { MissingParamError } from '../../erros'
 import { Validation } from './validation'
 
 export class RequiredFieldValidation implements Validation {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(private fieldName: string) {}
+  private readonly fieldName: string
+  constructor(fieldName: string) {
+    this.fieldName = fieldName
+  }
 
   validate(input: any): Error {
     if (!input[this.fieldName]) {
