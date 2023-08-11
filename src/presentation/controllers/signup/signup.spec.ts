@@ -1,6 +1,3 @@
-import { rejects } from 'assert'
-import { resolve } from 'path'
-
 import { InvalidParamError, MissingParamError, ServerError } from '../../erros'
 import { badRequest, ok, serverError } from '../../helpers/http-helper'
 import { SignUpController } from './signup'
