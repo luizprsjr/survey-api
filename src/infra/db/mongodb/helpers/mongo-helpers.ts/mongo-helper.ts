@@ -1,4 +1,4 @@
-import { Collection, MongoClient } from 'mongodb'
+import { Collection, MongoClient, ObjectId } from 'mongodb'
 
 export const MongoHelper = {
   client: null as MongoClient,
@@ -26,5 +26,9 @@ export const MongoHelper = {
     return Object.assign({}, collectionWithoutId, {
       id: _id.toHexString(),
     })
+  },
+
+  objectId(id: string): ObjectId {
+    return new ObjectId(id)
   },
 }
