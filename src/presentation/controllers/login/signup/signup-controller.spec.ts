@@ -1,10 +1,10 @@
-import { EmailInUseError, MissingParamError, ServerError } from '../../erros'
+import { EmailInUseError, MissingParamError, ServerError } from '../../../erros'
 import {
   badRequest,
   forbidden,
   ok,
   serverError,
-} from '../../helpers/http/http-helper'
+} from '../../../helpers/http/http-helper'
 import { SignUpController } from './signup-controller'
 import {
   AccountModel,

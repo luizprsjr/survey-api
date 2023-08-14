@@ -1,10 +1,10 @@
-import { EmailInUseError } from '../../erros'
+import { EmailInUseError } from '../../../erros'
 import {
   badRequest,
   forbidden,
   ok,
   serverError,
-} from '../../helpers/http/http-helper'
+} from '../../../helpers/http/http-helper'
 import {
   AddAccount,
   Authentication,
