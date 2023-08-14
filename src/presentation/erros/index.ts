@@ -1,4 +1,6 @@
 import * as from from './unauthorized-error'
+
 export * from './invalid-parram-error'
 export * from './missing-param-error'
 export * from './server-error'
+export * from './email-in-use-error'
