@@ -12,5 +12,5 @@
 
 1. ⛔️ Returns **404** if the API does not exist
 2. ⛔️ Returns **403** if the user is not an admin
-3. ⛔️ Returns **400** if question or answers are not provided by the client
+3. ✅ Returns **400** if question or answers are not provided by the client
 4. ⛔️ Returns **500** if an error occurs while trying to create the survey
