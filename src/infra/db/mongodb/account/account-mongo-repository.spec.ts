@@ -7,7 +7,7 @@ let accountCollection: Collection
 
 describe('Account Mongo Repository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL)
+    await MongoHelper.connect(process.env.MONGO_URL as string)
   })
   afterAll(async () => {
     await MongoHelper.disconnect()
@@ -67,9 +67,9 @@ describe('Account Mongo Repository', () => {
     const fakeAccount = await accountCollection.findOne({
       _id: newAcc.insertedId,
     })
-    expect(fakeAccount.accessToken).toBeFalsy()
+    expect(fakeAccount?.accessToken).toBeFalsy()
     await sut.updateAccessToken(fakeAccount._id.toString(), 'any_token')
-    const res = await accountCollection.findOne({ _id: fakeAccount._id })
+    const res = await accountCollection.findOne({ _id: fakeAccount?._id })
     const account = MongoHelper.map(res)
     expect(account).toBeTruthy()
     expect(account.accessToken).toBe('any_token')
