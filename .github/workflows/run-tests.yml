@@ -1,10 +1,10 @@
-name: Run Unit Tests
+name: Run All Tests
 
 on: [push]
 
 jobs:
   run-unit-tests:
-    name: Run Unit Tests
+    name: Run All Tests
     runs-on: ubuntu-latest
 
     steps:
