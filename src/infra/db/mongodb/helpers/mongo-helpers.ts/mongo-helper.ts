@@ -28,6 +28,16 @@ export const MongoHelper = {
     })
   },
 
+  mapArray(collection: any): any {
+    const newArray = collection.map((item) => {
+      const { _id, ...itemWithoutId } = item
+      return Object.assign({}, itemWithoutId, {
+        id: _id.toHexString(),
+      })
+    })
+    return newArray
+  },
+
   objectId(id: string): ObjectId {
     return new ObjectId(id)
   },
