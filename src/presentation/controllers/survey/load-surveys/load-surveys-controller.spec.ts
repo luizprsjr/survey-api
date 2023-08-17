@@ -1,6 +1,7 @@
 import MockDate from 'mockdate'
 
 import {
+  noContent,
   ok,
   serverError,
 } from '../../../../presentation/helpers/http/http-helper'
@@ -72,10 +73,20 @@ describe('LoadSurveys Controller', () => {
     expect(loadSpy).toHaveBeenCalled()
   })
 
-  it('should 200 on success', async () => {
+  it('should return 200 on success', async () => {
     const { sut } = makeSut()
     const HttpResponse = await sut.handle({})
     expect(HttpResponse).toEqual(ok(makeFakeSurveys()))
+  })
+
+  it('should return 204 if LoadSurveys returns empty', async () => {
+    const { sut, loadSurveysStub } = makeSut()
+    jest
+      .spyOn(loadSurveysStub, 'load')
+      .mockResolvedValueOnce([] as SurveyModel[])
+    const HttpResponse = await sut.handle({})
+    expect(HttpResponse.body).toBeNull()
+    expect(HttpResponse).toEqual(noContent())
   })
 
   it('should return 500 if Authentication throws', async () => {
