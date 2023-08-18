@@ -62,30 +62,62 @@ describe('Survey Routes', () => {
           },
         },
       )
-      if (accessToken) {
-        await request(app)
-          .post('/api/surveys')
-          .set('x-access-token', accessToken)
-          .send({
-            question: 'Question',
-            answers: [
-              {
-                answer: 'Answer 1',
-                image: 'http://image-name.com',
-              },
-              {
-                answer: 'Answer 2',
-              },
-            ],
-          })
-          .expect(204)
-      }
+      await request(app)
+        .post('/api/surveys')
+        .set('x-access-token', accessToken)
+        .send({
+          question: 'Question',
+          answers: [
+            {
+              answer: 'Answer 1',
+              image: 'http://image-name.com',
+            },
+            {
+              answer: 'Answer 2',
+            },
+          ],
+        })
+        .expect(204)
     })
   })
 
   describe('GET /surveys', () => {
     it('should return 403 on load surveys without accessToken', async () => {
       await request(app).get('/api/surveys').expect(403)
+    })
+
+    it('should return 200 on add survey with valid accessToken', async () => {
+      const res = await accountCollection.insertOne({
+        name: 'Luiz',
+        email: 'lpiresjunior@gmail.com',
+        password: '123',
+      })
+      const { insertedId: id } = res
+      const accessToken = sign({ id }, env.jwtSecret)
+      await accountCollection.updateOne(
+        {
+          _id: id,
+        },
+        {
+          $set: {
+            accessToken,
+          },
+        },
+      )
+      await surveyCollection.insertOne({
+        question: 'any_question',
+        answers: [
+          {
+            image: 'any_image',
+            answer: 'any_answer',
+          },
+        ],
+        date: new Date(),
+      })
+      await request(app)
+        .get('/api/surveys')
+        .set('x-access-token', accessToken)
+        .expect(200)
     })
   })
 })
