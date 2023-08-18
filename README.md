@@ -10,7 +10,21 @@ To install the project dependencies, open your terminal and navigate to the proj
 npm install
 ```
 
-## Prerequisites
+## Running with Docker (Recommended)
+
+The easiest way to run the Survey API is by using Docker. Docker provides a consistent environment that eliminates potential setup issues. If you prefer this method, follow the steps below:
+
+1. Make sure you have Docker installed on your machine.
+2. In your terminal, navigate to the project directory.
+3. Run the following command to set up the project using
+
+```bash
+npm run up
+```
+
+This command will create a Docker container for the project. Please wait while the container is being created.
+
+## Running Locally
 Before you start the Survey API, make sure you have MongoDB installed and running locally on your machine. If you're using a Mac, you can check if MongoDB is running by executing the following command:
 
 ```bash
