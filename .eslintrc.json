@@ -2,6 +2,9 @@
   "extends": [
     "@rocketseat/eslint-config/node"
   ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "no-useless-constructor": "off",
     "@typescript-eslint/no-explicit-any": "off",

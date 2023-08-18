@@ -1,4 +1,5 @@
-import { AccessDeniedError } from '../erros'
+import { AccessDeniedError } from '@/presentation/erros'
+
 import { forbidden, ok, serverError } from '../helpers/http/http-helper'
 import { AuthMiddleware } from './auth-middleware'
 import {

@@ -1,5 +1,10 @@
-import { AccessDeniedError } from '../erros'
-import { forbidden, ok, serverError } from '../helpers/http/http-helper'
+import { AccessDeniedError } from '@/presentation/erros'
+import {
+  forbidden,
+  ok,
+  serverError,
+} from '@/presentation/helpers/http/http-helper'
+
 import {
   HttpRequest,
   HttpResponse,
