@@ -6,7 +6,7 @@ import {
 
 import { makeAddSurveyValidation } from './add-survey-validation-factory'
 
-jest.mock('../../../../../validation/validators/validation-composite.ts')
+jest.mock('@/validation/validators/validation-composite.ts')
 
 describe('AddSurveyValidation Factory', () => {
   it('should call ValidationComposite with all validations', () => {

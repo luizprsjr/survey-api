@@ -9,7 +9,7 @@ import {
 
 import { makeSignUpValidation } from './signup-validation-factory'
 
-jest.mock('../../../../../validation/validators/validation-composite.ts')
+jest.mock('@/validation/validators/validation-composite.ts')
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
